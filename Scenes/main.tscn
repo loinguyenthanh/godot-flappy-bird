@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqegx7fv5e1me"]
+
+[ext_resource type="PackedScene" uid="uid://bp7s8x3fn2g7u" path="res://Scenes/bird.tscn" id="1_ayrkt"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_wf6um"]
+[ext_resource type="Texture2D" uid="uid://dn7x7u7l60p2k" path="res://Assets/background-day.png" id="2_dgerj"]
+[ext_resource type="PackedScene" uid="uid://dh3h16bvf3mii" path="res://Scenes/ground.tscn" id="3_tthdq"]
+[ext_resource type="PackedScene" uid="uid://n37gp13udjjx" path="res://Scenes/pipe_spawner.tscn" id="4_mhnoi"]
+[ext_resource type="FontFile" uid="uid://cu4lf4od2owng" path="res://Assets/font/FlappyBird.ttf" id="5_5mkry"]
+[ext_resource type="PackedScene" uid="uid://1dcbsthnq1ou" path="res://Scenes/ui.tscn" id="6_jf7ww"]
+
+[node name="main" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_wf6um")
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("2_dgerj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PipeSpawner" parent="." instance=ExtResource("4_mhnoi")]
+position = Vector2(1, 1)
+
+[node name="Ground" parent="." instance=ExtResource("3_tthdq")]
+position = Vector2(23, 233)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -255.0
+offset_right = 37.0
+offset_bottom = -205.0
+theme_override_fonts/font = ExtResource("5_5mkry")
+theme_override_font_sizes/font_size = 41
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bird" parent="." instance=ExtResource("1_ayrkt")]
+position = Vector2(3, 3)
+
+[node name="UI" parent="." instance=ExtResource("6_jf7ww")]

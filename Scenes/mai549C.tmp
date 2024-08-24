@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqegx7fv5e1me"]
+
+[ext_resource type="PackedScene" uid="uid://bp7s8x3fn2g7u" path="res://Scenes/bird.tscn" id="1_ayrkt"]
+[ext_resource type="Texture2D" uid="uid://dn7x7u7l60p2k" path="res://Assets/background-day.png" id="2_dgerj"]
+[ext_resource type="PackedScene" uid="uid://dh3h16bvf3mii" path="res://Scenes/ground.tscn" id="3_tthdq"]
+[ext_resource type="PackedScene" uid="uid://n37gp13udjjx" path="res://Scenes/pipe_spawner.tscn" id="4_mhnoi"]
+
+[node name="main" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("2_dgerj")
+
+[node name="Bird" parent="." instance=ExtResource("1_ayrkt")]
+position = Vector2(3, 3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PipeSpawner" parent="." instance=ExtResource("4_mhnoi")]
+position = Vector2(1, 1)
+
+[node name="Ground" parent="." instance=ExtResource("3_tthdq")]
+position = Vector2(23, 233)
